@@ -17,8 +17,6 @@ Preprocessing: Tokenization, padding, handling missing values.
 Models: Logistic Regression, XGBoost, Neural Networks (LTSM).  
 Tools & Libraries: Python (Google Colaboratory), pandas, scikit-learn, TensorFlow/Keras, matplotlib, seaborn.  
 
-
-
 ## Results
 | Model                |Parameters                     | Log loss (train)   | Log loss (test)   |  Training time
 |----------------------|-------------------------------|--------------------|-------------------|----------------------|
@@ -26,5 +24,13 @@ Tools & Libraries: Python (Google Colaboratory), pandas, scikit-learn, TensorFlo
 | XGBoost              | {'subsample': 0.7, <br> 'n_estimators': 200, <br> 'max_depth': 6, <br> 'learning_rate': 0.1, <br> 'colsample_bytree': 0.9}      | 0.5098             | 0.5159            | 1m                |
 | LSTM                 | {'embedding_dim': 50, <br> 'lstm_units': 32, <br> 'dropout_rate': 0.4, <br> 'learning_rate': 0.001}                              | 0.4383             | 0.4869            | 2h 36m               |
 
-## Best model
-- showed the best result among other models: AUROC 81% both for training and test datasets. The most significant features are: emp.var.rate and euribor3m.
+## Conclusions
+The LSTM model achieved the best performance, with the lowest test log loss (0.4869).
+
+The results show that deep learning models such as LSTM can learn contextual information and detect similarities between questions that traditional models (Logistic Regression or XGBoost) may miss.  
+
+The model can be used to identify duplicate questions in Q&A platforms or customer support systems. This can help reduce redundant content and improve the user experience by merging similar queries.  
+
+The LSTM model requires a large amount of training data and computational resources. It may also struggle with rare or domain-specific words that were not well represented in the training set. Additionally, the model’s interpretability is lower compared to simpler algorithms like Logistic Regression. These limitations should be considered when applying the model.    
+
+Future work could focus on using pre-trained transformer models (e.g., BERT) to further improve performance by leveraging contextual embeddings.
